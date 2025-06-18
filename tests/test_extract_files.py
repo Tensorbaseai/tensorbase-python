@@ -4,8 +4,8 @@ from typing import Sequence
 
 import pytest
 
-from tensorbase._types import FileTypes
-from tensorbase._utils import extract_files
+from tensorbase_client._types import FileTypes
+from tensorbase_client._utils import extract_files
 
 
 def test_removes_files_from_input() -> None:

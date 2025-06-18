@@ -7,9 +7,9 @@ import pytest
 import pydantic
 from pydantic import Field
 
-from tensorbase._utils import PropertyInfo
-from tensorbase._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
-from tensorbase._models import BaseModel, construct_type
+from tensorbase_client._utils import PropertyInfo
+from tensorbase_client._compat import PYDANTIC_V2, parse_obj, model_dump, model_json
+from tensorbase_client._models import BaseModel, construct_type
 
 
 class BasicModel(BaseModel):

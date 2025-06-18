@@ -81,7 +81,7 @@ HttpxRequestFiles = Union[Mapping[str, HttpxFileTypes], Sequence[Tuple[str, Http
 # This unfortunately means that you will either have
 # to import this type and pass it explicitly:
 #
-# from tensorbase import NoneType
+# from tensorbase_client import NoneType
 # client.get('/foo', cast_to=NoneType)
 #
 # or build it yourself:

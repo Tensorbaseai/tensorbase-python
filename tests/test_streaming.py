@@ -5,8 +5,8 @@ from typing import Iterator, AsyncIterator
 import httpx
 import pytest
 
-from tensorbase import Tensorbase, AsyncTensorbase
-from tensorbase._streaming import Stream, AsyncStream, ServerSentEvent
+from tensorbase_client import Tensorbase, AsyncTensorbase
+from tensorbase_client._streaming import Stream, AsyncStream, ServerSentEvent
 
 
 @pytest.mark.asyncio
