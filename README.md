@@ -1,6 +1,6 @@
 # Tensorbase Python API library
 
-[![PyPI version](<https://img.shields.io/pypi/v/tensorbase.svg?label=pypi%20(stable)>)](https://pypi.org/project/tensorbase/)
+[![PyPI version](<https://img.shields.io/pypi/v/tensorbase-client.svg?label=pypi%20(stable)>)](https://pypi.org/project/tensorbase-client/)
 
 The Tensorbase Python library provides convenient access to the Tensorbase REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,
@@ -15,12 +15,9 @@ The full API of this library can be found in [api.md](api.md).
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/tensorbase-python.git
+# install from PyPI
+pip install --pre tensorbase-client
 ```
-
-> [!NOTE]
-> Once this package is [published to PyPI](https://app.stainless.com/docs/guides/publish), this will become: `pip install --pre tensorbase`
 
 ## Usage
 
@@ -28,7 +25,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
-from tensorbase import Tensorbase
+from tensorbase_client import Tensorbase
 
 client = Tensorbase(
     api_key=os.environ.get("TENSORBASE_API_KEY"),  # This is the default and can be omitted
@@ -53,7 +50,7 @@ Simply import `AsyncTensorbase` instead of `Tensorbase` and use `await` with eac
 ```python
 import os
 import asyncio
-from tensorbase import AsyncTensorbase
+from tensorbase_client import AsyncTensorbase
 
 client = AsyncTensorbase(
     api_key=os.environ.get("TENSORBASE_API_KEY"),  # This is the default and can be omitted
@@ -84,16 +81,16 @@ Typed requests and responses provide autocomplete and documentation within your 
 
 ## Handling errors
 
-When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `tensorbase.APIConnectionError` is raised.
+When the library is unable to connect to the API (for example, due to network connection problems or a timeout), a subclass of `tensorbase_client.APIConnectionError` is raised.
 
 When the API returns a non-success status code (that is, 4xx or 5xx
-response), a subclass of `tensorbase.APIStatusError` is raised, containing `status_code` and `response` properties.
+response), a subclass of `tensorbase_client.APIStatusError` is raised, containing `status_code` and `response` properties.
 
-All errors inherit from `tensorbase.APIError`.
+All errors inherit from `tensorbase_client.APIError`.
 
 ```python
-import tensorbase
-from tensorbase import Tensorbase
+import tensorbase_client
+from tensorbase_client import Tensorbase
 
 client = Tensorbase()
 
@@ -102,12 +99,12 @@ try:
         messages=[{}],
         model="REPLACE_ME",
     )
-except tensorbase.APIConnectionError as e:
+except tensorbase_client.APIConnectionError as e:
     print("The server could not be reached")
     print(e.__cause__)  # an underlying Exception, likely raised within httpx.
-except tensorbase.RateLimitError as e:
+except tensorbase_client.RateLimitError as e:
     print("A 429 status code was received; we should back off a bit.")
-except tensorbase.APIStatusError as e:
+except tensorbase_client.APIStatusError as e:
     print("Another non-200-range status code was received")
     print(e.status_code)
     print(e.response)
@@ -135,7 +132,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from tensorbase import Tensorbase
+from tensorbase_client import Tensorbase
 
 # Configure the default for all requests:
 client = Tensorbase(
@@ -156,7 +153,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/timeouts/#fine-tuning-the-configuration) object:
 
 ```python
-from tensorbase import Tensorbase
+from tensorbase_client import Tensorbase
 
 # Configure the default for all requests:
 client = Tensorbase(
@@ -211,7 +208,7 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
-from tensorbase import Tensorbase
+from tensorbase_client import Tensorbase
 
 client = Tensorbase()
 response = client.chat.with_raw_response.generate_completion(
@@ -224,9 +221,9 @@ chat = response.parse()  # get the object that `chat.generate_completion()` woul
 print(chat.id)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/tensorbase-python/tree/main/src/tensorbase/_response.py) object.
+These methods return an [`APIResponse`](https://github.com/Tensorbaseai/tensorbase-python/tree/main/src/tensorbase_client/_response.py) object.
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/tensorbase-python/tree/main/src/tensorbase/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+The async client returns an [`AsyncAPIResponse`](https://github.com/Tensorbaseai/tensorbase-python/tree/main/src/tensorbase_client/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -291,7 +288,7 @@ You can directly override the [httpx client](https://www.python-httpx.org/api/#c
 
 ```python
 import httpx
-from tensorbase import Tensorbase, DefaultHttpxClient
+from tensorbase_client import Tensorbase, DefaultHttpxClient
 
 client = Tensorbase(
     # Or use the `TENSORBASE_BASE_URL` env var
@@ -314,7 +311,7 @@ client.with_options(http_client=DefaultHttpxClient(...))
 By default the library closes underlying HTTP connections whenever the client is [garbage collected](https://docs.python.org/3/reference/datamodel.html#object.__del__). You can manually close the client using the `.close()` method if desired, or with a context manager that closes when exiting.
 
 ```py
-from tensorbase import Tensorbase
+from tensorbase_client import Tensorbase
 
 with Tensorbase() as client:
   # make requests here
@@ -333,7 +330,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/tensorbase-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/Tensorbaseai/tensorbase-python/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 
@@ -342,8 +339,8 @@ If you've upgraded to the latest version but aren't seeing any new features you 
 You can determine the version that is being used at runtime with:
 
 ```py
-import tensorbase
-print(tensorbase.__version__)
+import tensorbase_client
+print(tensorbase_client.__version__)
 ```
 
 ## Requirements

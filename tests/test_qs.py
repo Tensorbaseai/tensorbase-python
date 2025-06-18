@@ -4,7 +4,7 @@ from urllib.parse import unquote
 
 import pytest
 
-from tensorbase._qs import Querystring, stringify
+from tensorbase_client._qs import Querystring, stringify
 
 
 def test_empty() -> None:

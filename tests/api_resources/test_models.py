@@ -7,9 +7,9 @@ from typing import Any, cast
 
 import pytest
 
-from tensorbase import Tensorbase, AsyncTensorbase
 from tests.utils import assert_matches_type
-from tensorbase.types import ModelListResponse, ModelRetrieveResponse
+from tensorbase_client import Tensorbase, AsyncTensorbase
+from tensorbase_client.types import ModelListResponse, ModelRetrieveResponse
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 

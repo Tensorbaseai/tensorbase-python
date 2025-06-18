@@ -2,7 +2,7 @@ import operator
 from typing import Any
 from typing_extensions import override
 
-from tensorbase._utils import LazyProxy
+from tensorbase_client._utils import LazyProxy
 
 
 class RecursiveLazyProxy(LazyProxy[Any]):
