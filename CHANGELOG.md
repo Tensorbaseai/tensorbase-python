@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2025-06-24)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/Tensorbaseai/tensorbase-python/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **client:** add support for aiohttp ([337c6f3](https://github.com/Tensorbaseai/tensorbase-python/commit/337c6f32a2a01828e0fc1780c28e74fff925078e))
+
+
+### Chores
+
+* **tests:** skip some failing tests on the latest python versions ([fab8f18](https://github.com/Tensorbaseai/tensorbase-python/commit/fab8f181a8ff2932682ffbd3e75cc0190a263f4a))
+
 ## 0.1.0-alpha.1 (2025-06-18)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/Tensorbaseai/tensorbase-python/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
