@@ -1,6 +1,6 @@
 [project]
 name = "tensorbase-client"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 description = "The official Python library for the tensorbase API"
 dynamic = ["readme"]
 license = "Apache-2.0"
@@ -37,6 +37,8 @@ classifiers = [
 Homepage = "https://github.com/Tensorbaseai/tensorbase-python"
 Repository = "https://github.com/Tensorbaseai/tensorbase-python"
 
+[project.optional-dependencies]
+aiohttp = ["aiohttp", "httpx_aiohttp>=0.1.6"]
 
 [tool.rye]
 managed = true
