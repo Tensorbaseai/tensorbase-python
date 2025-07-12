@@ -1,6 +1,7 @@
 # Tensorbase Python API library
 
-[![PyPI version](<https://img.shields.io/pypi/v/tensorbase-client.svg?label=pypi%20(stable)>)](https://pypi.org/project/tensorbase-client/)
+<!-- prettier-ignore -->
+[![PyPI version](https://img.shields.io/pypi/v/tensorbase-client.svg?label=pypi%20(stable))](https://pypi.org/project/tensorbase-client/)
 
 The Tensorbase Python library provides convenient access to the Tensorbase REST API from any Python 3.8+
 application. The library includes type definitions for all request params and response fields,

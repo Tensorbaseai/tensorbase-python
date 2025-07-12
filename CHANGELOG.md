@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2025-07-12)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/Tensorbaseai/tensorbase-python/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Bug Fixes
+
+* **client:** don't send Content-Type header on GET requests ([ad261bd](https://github.com/Tensorbaseai/tensorbase-python/commit/ad261bd17c3692f526657be9b967d26d8b7f0ee4))
+* **parsing:** correctly handle nested discriminated unions ([3459cae](https://github.com/Tensorbaseai/tensorbase-python/commit/3459caef73f4bd93528a8decc74c422238647418))
+
+
+### Chores
+
+* **internal:** bump pinned h11 dep ([30256b0](https://github.com/Tensorbaseai/tensorbase-python/commit/30256b05c169cbf49597da59ae8c2a5666812f9e))
+* **internal:** codegen related update ([cd8ae7d](https://github.com/Tensorbaseai/tensorbase-python/commit/cd8ae7dc27c6388d0911759676c90d0c88eb03cb))
+* **package:** mark python 3.13 as supported ([bb6b843](https://github.com/Tensorbaseai/tensorbase-python/commit/bb6b843c102a2cd02b9ca31436e1a7b51347a747))
+* **readme:** fix version rendering on pypi ([11fe472](https://github.com/Tensorbaseai/tensorbase-python/commit/11fe472ff5e2dfa314dc6a1f5f0ffabd6eea4326))
+
 ## 0.1.0-alpha.3 (2025-07-02)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/Tensorbaseai/tensorbase-python/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
