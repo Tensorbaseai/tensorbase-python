@@ -85,7 +85,6 @@ pip install --pre tensorbase-client[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
-import os
 import asyncio
 from tensorbase_client import DefaultAioHttpClient
 from tensorbase_client import AsyncTensorbase
@@ -93,7 +92,7 @@ from tensorbase_client import AsyncTensorbase
 
 async def main() -> None:
     async with AsyncTensorbase(
-        api_key=os.environ.get("TENSORBASE_API_KEY"),  # This is the default and can be omitted
+        api_key="My API Key",
         http_client=DefaultAioHttpClient(),
     ) as client:
         response = await client.chat.generate_completion(
