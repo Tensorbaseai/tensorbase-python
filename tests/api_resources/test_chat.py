@@ -17,7 +17,7 @@ base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 class TestChat:
     parametrize = pytest.mark.parametrize("client", [False, True], indirect=True, ids=["loose", "strict"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_generate_completion(self, client: Tensorbase) -> None:
         chat = client.chat.generate_completion(
@@ -26,7 +26,7 @@ class TestChat:
         )
         assert_matches_type(ChatGenerateCompletionResponse, chat, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_method_generate_completion_with_all_params(self, client: Tensorbase) -> None:
         chat = client.chat.generate_completion(
@@ -47,7 +47,7 @@ class TestChat:
         )
         assert_matches_type(ChatGenerateCompletionResponse, chat, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_raw_response_generate_completion(self, client: Tensorbase) -> None:
         response = client.chat.with_raw_response.generate_completion(
@@ -60,7 +60,7 @@ class TestChat:
         chat = response.parse()
         assert_matches_type(ChatGenerateCompletionResponse, chat, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     def test_streaming_response_generate_completion(self, client: Tensorbase) -> None:
         with client.chat.with_streaming_response.generate_completion(
@@ -81,7 +81,7 @@ class TestAsyncChat:
         "async_client", [False, True, {"http_client": "aiohttp"}], indirect=True, ids=["loose", "strict", "aiohttp"]
     )
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_generate_completion(self, async_client: AsyncTensorbase) -> None:
         chat = await async_client.chat.generate_completion(
@@ -90,7 +90,7 @@ class TestAsyncChat:
         )
         assert_matches_type(ChatGenerateCompletionResponse, chat, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_method_generate_completion_with_all_params(self, async_client: AsyncTensorbase) -> None:
         chat = await async_client.chat.generate_completion(
@@ -111,7 +111,7 @@ class TestAsyncChat:
         )
         assert_matches_type(ChatGenerateCompletionResponse, chat, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_raw_response_generate_completion(self, async_client: AsyncTensorbase) -> None:
         response = await async_client.chat.with_raw_response.generate_completion(
@@ -124,7 +124,7 @@ class TestAsyncChat:
         chat = await response.parse()
         assert_matches_type(ChatGenerateCompletionResponse, chat, path=["response"])
 
-    @pytest.mark.skip()
+    @pytest.mark.skip(reason="Prism tests are disabled")
     @parametrize
     async def test_streaming_response_generate_completion(self, async_client: AsyncTensorbase) -> None:
         async with async_client.chat.with_streaming_response.generate_completion(
